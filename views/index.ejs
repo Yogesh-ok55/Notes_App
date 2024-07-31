@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-slate-900">
+        <div class="form container px-40 py-10 text-white flex flex-items flex-col gap-4">
+            <h1 class="text-4xl font-bold text-center m-8">Notes App</h1>
+            <form action="/create" method="post" class="flex gap-4 flex-col items-center">
+                <input class="block px-3 py-3 bg-slate-800 w-full" type="text" placeholder="Title" name="title" required>
+                <textarea class="block px-3 py-3 bg-slate-800 w-full  pt-[80px] rounded-lg w-[40%]" placeholder="task details" name="details" required></textarea>
+                <input class="text-white px-5 py-3 bg-blue-600 w-[15%] cursor-pointer rounded-lg" type="submit" value="create task">
+            </form>
+        </div>
+
+        <div class="flex gap-6 w-full justify-center ">
+         <% if(files.length>0){ %>
+
+            <% files.forEach((val)=> { %>
+            
+            <div class="text-white bg-slate-800 w-[20%]  rounded-lg flex flex-col items-center ">
+                <h1><%= val %></h1>
+                <div>
+                <a class="text-blue-600" href="/files/<%= val %>">read more</a>
+                <a class="ml-4 text-blue-600" href="/editfiles/<%= val %>">Edit</a>
+                </div>
+            </div>
+
+            <% }) %>
+
+         <% } else {%>
+            <h2 class="text-white">No task</h2>
+         <% } %>
+         
+</body>
+</html>
