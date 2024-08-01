@@ -4,7 +4,8 @@ Basic CRUD operations for notes.
 
 Requirements:
 
-Node.js and npm (or yarn)
+Node.js and npm (or yarn),
+npm init,
 npm i path express fs ejs
 Setup:
 
