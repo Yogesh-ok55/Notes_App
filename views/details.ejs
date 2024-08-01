@@ -11,8 +11,9 @@
         <div class="px-40 py-10 text-white">
             <a class="my-10 px-5 bg-blue-600 rounded-lg hover:bg-blue-600
             cursor-pointer inline-block" href="/">Go Back</a>
-            <h1 class="text-3xl bg-slate-800 mb-10 p-5 rounded-lg text-center"><%= filename %></h1>
-            <p class="bg-slate-800 p-3 rounded-lg text-center"><%= filedata %></p>
+            <h1 class="text-3xl bg-slate-800 mb-10 p-5 rounded-lg text-center" value="header" ><%= filename %></h1>
+            <p class="bg-slate-800 p-3 mb-5 rounded-lg text-center " value="content"><%= filedata %></p>
+            <a class="text-white px-5 py-3 bg-yellow-600 w-[15%] cursor-pointer rounded-lg" href="/editdetails/<%= filename %>/<%=filedata %>">EditData</a>
         </div>
      </div>
 </body>

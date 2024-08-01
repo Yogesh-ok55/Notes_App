@@ -18,7 +18,7 @@ app.get('/',function(req,res){
 })
 
 app.post('/create', (req,res)=>{
-    fs.writeFile(`./files/${req.body.title.split(' ').join()}.txt`,req.body.details,(err)=>{
+    fs.writeFile(`./files/${req.body.title.split(' ').join()}`,req.body.details,(err)=>{
         res.redirect('/');
     })
 })
@@ -33,8 +33,40 @@ app.get('/files/:filename',(req,res)=>{
 })
 
 app.get('/editfiles/:filename',(req,res)=>{
-    res.render('editfiles')
+    res.render('editfiles',{value:req.params.filename})
 })
+
+app.post('/edittitle',(req,res)=>{
+    fs.rename(`./files/${req.body.previous}`,`./files/${req.body.new}`,(req,res)=>{
+    })
+    res.redirect('/')
+})
+
+app.get('/editdetails/:filename/:filedata',(req,res)=>{
+    res.render('editdetails',{
+        filename:req.params.filename,
+        filedata:req.params.filedata
+    })
+
+    
+    
+})
+
+app.post('/update',(req,res)=>{
+    fs.writeFile(`./files/${req.body.header}`,`${req.body.content}`,(err)=>{
+        res.redirect('/')
+    })
+   
+})
+
+app.get('/delete/:value',(req,res)=>{
+    fs.unlink(`./files/${req.params.value}`,(err)=>{
+
+    })
+    res.redirect("/")
+})
+
+
 
 app.listen(3000,()=>{
     console.log("server is running on port 3000")

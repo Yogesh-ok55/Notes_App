@@ -13,12 +13,12 @@
             <h1 class="text-4xl font-bold text-center m-8">Notes App</h1>
             <form action="/create" method="post" class="flex gap-4 flex-col items-center">
                 <input class="block px-3 py-3 bg-slate-800 w-full" type="text" placeholder="Title" name="title" required>
-                <textarea class="block px-3 py-3 bg-slate-800 w-full  pt-[80px] rounded-lg w-[40%]" placeholder="task details" name="details" required></textarea>
+                <textarea class="block px-3 py-3 bg-slate-800 w-full  pt-[40px] rounded-lg w-[40%]" placeholder="task details" name="details" required></textarea>
                 <input class="text-white px-5 py-3 bg-blue-600 w-[15%] cursor-pointer rounded-lg" type="submit" value="create task">
             </form>
         </div>
 
-        <div class="flex gap-6 w-full justify-center ">
+        <div class="flex flex-wrap gap-6 w-full justify-center ">
          <% if(files.length>0){ %>
 
             <% files.forEach((val)=> { %>
@@ -26,16 +26,20 @@
             <div class="text-white bg-slate-800 w-[20%]  rounded-lg flex flex-col items-center ">
                 <h1><%= val %></h1>
                 <div>
-                <a class="text-blue-600" href="/files/<%= val %>">read more</a>
+                <a class="text-yellow-600" href="/files/<%= val %>">read more</a>
                 <a class="ml-4 text-blue-600" href="/editfiles/<%= val %>">Edit</a>
+                <a class="ml-4 text-red-600" href="/delete/<%= val %>">Delete</a>
+
                 </div>
             </div>
 
             <% }) %>
 
          <% } else {%>
-            <h2 class="text-white">No task</h2>
+            <h2 class="text-white w-[7%]">No task</h2>
          <% } %>
+
+         </div>
          
 </body>
 </html>
