@@ -1,5 +1,5 @@
 Notes App Backend
-# DO not Forget to create files folder inside it
+# Do not Forget to create files folder inside it
 Basic CRUD operations for notes.
 
 Requirements:
