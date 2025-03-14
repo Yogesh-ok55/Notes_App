@@ -12,10 +12,14 @@ app.set('view engine', 'ejs')
 app.set("views", path.join(__dirname, "views"));
 
 app.get('/',function(req,res){
-    fs.readdir('./files',(err,files)=>{
-        res.render('index',{files:files})
-        
-    })
+   fs.readdir(filesDirectory, (err, files) => {
+            if (err) {
+                console.error("Error reading files directory:", err);
+                return res.status(500).send("Error reading files.");
+            }
+            console.log("Files in directory:", files); // Debugging
+            res.render("index", { files }); // Pass files to EJS
+        });
 })
 
 app.post('/create', (req,res)=>{
