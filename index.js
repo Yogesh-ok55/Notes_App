@@ -12,7 +12,7 @@ app.set('view engine', 'ejs')
 app.set("views", path.join(__dirname, "views"));
 
 app.get('/',function(req,res){
-   fs.readdir(filesDirectory, (err, files) => {
+   fs.readdir(files, (err, files) => {
             if (err) {
                 console.error("Error reading files directory:", err);
                 return res.status(500).send("Error reading files.");
