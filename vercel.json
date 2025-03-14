@@ -9,9 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "index.js"
+      "dest": "/index.js"
     }
-  ],
-  "ignoreCommand": "echo 'Skipping ignored files'",
-  "includeFiles": ["views/**", "public/**"]
+  ]
 }
